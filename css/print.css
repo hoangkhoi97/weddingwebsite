@@ -1,0 +1,83 @@
+@media print {
+  /* Hide interactive/non-printable elements */
+  .language-switcher,
+  .scroll-indicator,
+  .rsvp-form,
+  .map-iframe,
+  .share-btn,
+  .edit-btn,
+  .submit-btn,
+  .rsvp-loading,
+  .honeypot {
+    display: none !important;
+  }
+
+  /* Clean typography */
+  body {
+    background: white;
+    color: #2C2C2C;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  h1, h2, h3 {
+    color: #2C2C2C;
+    page-break-after: avoid;
+  }
+
+  p {
+    color: #2C2C2C;
+  }
+
+  /* Ensure sections don't break awkwardly */
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 1rem 0;
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Show URLs for links */
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 10pt;
+    color: #666;
+  }
+
+  /* Simplify layout */
+  .couple-grid {
+    display: block;
+  }
+
+  .groom, .bride {
+    margin-bottom: 1rem;
+    border: 1px solid #C4A4A4;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  /* Countdown cards print cleanly */
+  .countdown-item {
+    background: #F5F0EB !important;
+    border: 1px solid #C4A4A4;
+    padding: 0.5rem 1rem;
+  }
+
+  .countdown-value,
+  .countdown-label {
+    color: #2C2C2C !important;
+  }
+
+  /* Photo borders */
+  .person-photo img {
+    border: 2px solid #C4A4A4;
+  }
+
+  /* Footer */
+  footer {
+    background: white;
+    color: #2C2C2C;
+    border-top: 2px solid #C4A4A4;
+  }
+}

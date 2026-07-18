@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n-key="hero.names">Chú Rể & Cô Dâu</title>
+
+  <!-- Social Sharing -->
+  <meta property="og:title" content="[Groom] & [Bride] — Wedding Invitation">
+  <meta property="og:description" content="Join us in celebrating our wedding day!">
+  <meta property="og:image" content="[URL to couple photo]">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="[GitHub Pages URL]">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[Groom] & [Bride] — Wedding Invitation">
+  <meta name="twitter:description" content="Join us in celebrating our wedding day!">
+  <meta name="twitter:image" content="[URL to couple photo]">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🩷%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="countdown sticky-countdown" data-wedding-date="2026-08-09T16:00:00">
+    <div class="container">
+      <div class="countdown-inner">
+        <div class="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-days">00</span>
+            <span class="countdown-label" data-i18n-key="hero.countdownDays">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-hours">00</span>
+            <span class="countdown-label" data-i18n-key="hero.countdownHours">Hrs</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-minutes">00</span>
+            <span class="countdown-label" data-i18n-key="hero.countdownMinutes">Min</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-value" id="countdown-seconds">00</span>
+            <span class="countdown-label" data-i18n-key="hero.countdownSeconds">Sec</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img src="images/couple-placeholder.jpg" alt="[Couple names]" data-i18n-key-alt="hero.photoAlt">
+        <div class="hero-overlay"></div>
+      </div>
+      <div class="container">
+        <h1 data-i18n-key="hero.names">Groom & Bride</h1>
+        <div class="wedding-date-card">
+          <p class="wedding-date-label" data-i18n-key="hero.dateLabel">Wedding Date</p>
+          <p class="wedding-date-value" data-i18n-key="hero.weddingDate">August 9, 2026</p>
+        </div>
+        <div class="scroll-indicator" aria-hidden="true">↓</div>
+      </div>
+    </section>
+
+    <!-- Section 2: Couple Information -->
+    <section class="couple" id="couple">
+      <div class="container">
+        <div class="couple-grid">
+          <div class="groom">
+            <div class="person-photo">
+              <img src="images/groom-placeholder.jpg" alt="[Groom name]" data-i18n-key-alt="about.groomPhotoAlt">
+            </div>
+            <h3 data-i18n-key="about.groomTitle">Groom</h3>
+            <p data-i18n-key="about.groomBio">Adrian is an architect who believes great design brings people together. He loves hiking mountain trails, experimenting with film photography, and discovering hidden cafes around the world.</p>
+          </div>
+          <div class="bride">
+            <div class="person-photo">
+              <img src="images/bride-placeholder.jpg" alt="[Bride name]" data-i18n-key-alt="about.bridePhotoAlt">
+            </div>
+            <h3 data-i18n-key="about.brideTitle">Bride</h3>
+            <p data-i18n-key="about.brideBio">Sophia is a musician and educator who connects hearts through melody and story. She finds joy in tending her garden, writing poetry at sunrise, and exploring art in every form.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Wedding Ceremony -->
+    <section class="venue ceremony" id="ceremony">
+      <div class="container">
+        <h2 data-i18n-key="venues.ceremonyTitle">Wedding Ceremony</h2>
+        <div class="venue-card">
+          <p class="venue-name" data-i18n-key="venues.churchName">[Church Name]</p>
+          <p class="venue-address" data-i18n-key="venues.churchAddress">[Church Address]</p>
+          <p class="venue-time" data-i18n-key="venues.churchTime">August 9, 2026 | 4:00 PM</p>
+        </div>
+        <iframe
+          class="map-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4884.20586628494!2d136.9193476311423!3d35.21104274280322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6003718b595031c3%3A0xee1d07a983ea2087!2z44G144GB44KT44Gh44KD44KT!5e0!3m2!1sja!2sjp!4v1784356138390!5m2!1sja!2sjp"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Map showing wedding ceremony location"
+          tabindex="-1">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Section 4: Wedding Reception -->
+    <section class="venue reception" id="reception">
+      <div class="container">
+        <h2 data-i18n-key="venues.receptionTitle">Wedding Reception</h2>
+        <div class="venue-card">
+          <p class="venue-name" data-i18n-key="venues.restaurantName">[Restaurant Name]</p>
+          <p class="venue-address" data-i18n-key="venues.restaurantAddress">[Restaurant Address]</p>
+          <p class="venue-time" data-i18n-key="venues.restaurantTime">August 9, 2026 | 6:00 PM</p>
+        </div>
+        <iframe
+          class="map-iframe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4884.20586628494!2d136.9193476311423!3d35.21104274280322!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600373e331fb45ed%3A0xe64b4e7295b4fa3e!2z5ZCN5Y-k5bGL5biC5YyX44K544Od44O844OE44K744Oz44K_44O8!5e0!3m2!1sja!2sjp!4v1784356206241!5m2!1sja!2sjp"
+          width="100%"
+          height="300"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Map showing wedding reception location"
+          tabindex="-1">
+        </iframe>
+      </div>
+    </section>
+
+    <!-- Section 5: RSVP -->
+    <section class="rsvp" id="rsvp">
+      <div class="container">
+        <h2 data-i18n-key="rsvp.title">Wedding Attendance Confirmation</h2>
+
+        <!-- RSVP Closed Message (hidden by default) -->
+        <div class="rsvp-closed hidden" role="status">
+          <p data-i18n-key="rsvp.deadlineClosedMessage">Responses are now closed. If you have questions, please contact the couple directly.</p>
+        </div>
+
+        <!-- RSVP Form -->
+        <form class="rsvp-form" novalidate>
+          <!-- Honeypot -->
+          <input type="text" name="website" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- Name -->
+          <div class="field">
+            <label for="rsvp-name" data-i18n-key="rsvp.nameLabel">Full Name</label>
+            <input type="text" id="rsvp-name" name="name" required>
+            <span class="error" id="name-error" aria-live="polite"></span>
+          </div>
+
+          <!-- Guest Count -->
+          <div class="field">
+            <label for="rsvp-guests" data-i18n-key="rsvp.guestCountLabel">Total guests attending (including you)</label>
+            <input type="number" id="rsvp-guests" name="guestCount" min="1" max="10" value="1">
+            <span class="error" id="guests-error" aria-live="polite"></span>
+          </div>
+
+          <!-- Note -->
+          <div class="field">
+            <label for="rsvp-note" data-i18n-key="rsvp.noteLabel">Note (Optional)</label>
+            <textarea id="rsvp-note" name="note" rows="3" data-i18n-key-placeholder="rsvp.notePlaceholder" placeholder="A message for the couple..."></textarea>
+          </div>
+
+          <!-- Error Banner -->
+          <div class="error-banner hidden" role="alert" aria-live="polite"></div>
+
+          <button type="submit" class="submit-btn" data-i18n-key="rsvp.submitButton">Submit</button>
+        </form>
+
+        <!-- Read-Only View (hidden by default) -->
+        <div class="rsvp-readonly hidden">
+          <div class="response-card">
+            <p class="response-name"></p>
+            <p class="response-guests"></p>
+            <p class="response-note"></p>
+            <p class="response-date"></p>
+          </div>
+          <button type="button" class="edit-btn" data-i18n-key="rsvp.editButton">Edit your response</button>
+        </div>
+
+        <!-- Loading State -->
+        <div class="rsvp-loading hidden">
+          <p data-i18n-key="rsvp.submittingText">Loading...</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Confirm Modal -->
+  <div class="modal-overlay" id="confirm-modal" role="dialog" aria-modal="true" aria-labelledby="modal-message">
+    <div class="modal-dialog">
+      <p class="modal-message" id="modal-message"></p>
+      <div class="modal-actions">
+        <button type="button" class="modal-btn modal-btn-cancel" data-i18n-key="rsvp.editConfirmCancel">Cancel</button>
+        <button type="button" class="modal-btn modal-btn-confirm" data-i18n-key="rsvp.editConfirmContinue">Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p data-i18n-key="footer.closing">We can't wait to celebrate with you!</p>
+      <button type="button" class="share-btn" data-i18n-key="footer.shareLabel">Share this invitation</button>
+    </div>
+  </footer>
+
+  <div class="language-switcher" role="group" aria-label="Language selection">
+    <button type="button" data-lang="vi" aria-label="Switch to Vietnamese">Tiếng Việt</button>
+    <button type="button" data-lang="ja" aria-label="Switch to Japanese">日本語</button>
+  </div>
+
+  <script src="js/app.js" defer></script>
+</body>
+</html>

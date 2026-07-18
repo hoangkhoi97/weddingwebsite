@@ -1,0 +1,815 @@
+/* ===== CSS Custom Properties ===== */
+:root {
+  --color-primary: #C4A4A4;       /* Dusty rose — headings, accents */
+  --color-secondary: #3D3D3D;      /* Deep charcoal — body text */
+  --color-background: #FAF7F2;      /* Warm cream — page background */
+  --color-accent: #D4AF37;          /* Soft gold — highlights, hover states */
+  --color-accent-light: #E8D5B7;    /* Light champagne — decorative elements */
+  --color-card-bg: #FFFFFF;          /* White for cards */
+  --color-border: rgba(196, 164, 164, 0.25); /* Rose-tinted border */
+  --color-countdown-bg: #C4A4A4;    /* Dusty rose countdown cards */
+  --color-countdown-text: #FFFFFF;   /* White text on countdown */
+  --color-map-bg: #F5F0EB;          /* Warm light cream — venue sections */
+  --color-white: #FFFFFF;
+  --color-error: #C0392B;
+  --color-success: #27AE60;
+
+  --font-heading: 'Cormorant Garamond', 'Noto Serif JP', Georgia, 'Times New Roman', serif;
+  --font-body: 'Lato', 'Noto Sans JP', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+
+  --container-max: 800px;
+  --section-padding: 4rem;
+  --section-padding-mobile: 3rem;
+}
+
+/* ===== Reset ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-background);
+  color: var(--color-secondary);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-primary);
+}
+
+h1 { font-size: 3.5rem; letter-spacing: 0.05em; }
+h2 { font-size: 2.25rem; margin-bottom: 1.5rem; }
+h3 { font-size: 1.75rem; margin-bottom: 1rem; }
+
+p { margin-bottom: 1rem; }
+
+a {
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-accent);
+}
+
+/* ===== Layout ===== */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: var(--section-padding) 0;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ===== Utility Classes ===== */
+.hidden { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ===== Language Switcher ===== */
+.language-switcher {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.25rem;
+  background: var(--color-card-bg);
+  padding: 0.5rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 8px rgba(196, 164, 164, 0.15);
+  border: 1px solid var(--color-border);
+}
+
+.language-switcher button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.language-switcher button:hover,
+.language-switcher button:focus-visible {
+  background: var(--color-accent-light);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.language-switcher button.active {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* ===== Sticky Countdown ===== */
+.sticky-countdown {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--color-white);
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(196, 164, 164, 0.15);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.countdown-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.countdown-grid {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-countdown-bg);
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  min-width: 90px;
+  box-shadow: 0 4px 12px rgba(196, 164, 164, 0.2);
+}
+
+.countdown-value {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-countdown-text);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.countdown-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-countdown-text);
+  opacity: 0.9;
+}
+
+@media (max-width: 576px) {
+  .countdown-grid {
+    gap: 0.35rem;
+  }
+  .countdown-item {
+    padding: 0.75rem 0.75rem;
+    min-width: 60px;
+    border-radius: 12px;
+  }
+  .countdown-value {
+    font-size: 2.25rem;
+  }
+  .countdown-label {
+    font-size: 0.6rem;
+  }
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem;
+}
+
+.hero h1 {
+  margin-bottom: 1.5rem;
+  font-size: 4rem;
+  color: #FFFFFF;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.wedding-date-card {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 16px;
+  padding: 1.5rem 2.5rem;
+  display: block;
+  width: fit-content;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.wedding-date-label {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.wedding-date-value {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  margin-bottom: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.scroll-indicator {
+  font-size: 2rem;
+  color: #FFFFFF;
+  opacity: 0.8;
+  animation: bounce 2s infinite;
+  margin-top: 1rem;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator { animation: none; }
+}
+
+/* ===== Couple ===== */
+.couple {
+  background: var(--color-background);
+}
+
+.couple-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.groom, .bride {
+  text-align: center;
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.08);
+}
+
+.groom h3, .bride h3 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-size: 1.75rem;
+}
+
+.groom p, .bride p {
+  margin-bottom: 0;
+  color: var(--color-secondary);
+  line-height: 1.7;
+}
+
+.person-photo {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.person-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--color-white);
+  box-shadow: 0 6px 20px rgba(196, 164, 164, 0.2);
+}
+
+/* ===== Venues ===== */
+.venue {
+  background: var(--color-map-bg);
+}
+
+.venue h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.venue-card {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.08);
+}
+
+.venue-name {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+}
+
+.venue-address {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-secondary);
+}
+
+.venue-time {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: 0;
+  letter-spacing: 0.05em;
+}
+
+.venue iframe {
+  border-radius: 16px;
+  width: 100%;
+  height: 300px;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.15);
+}
+
+/* ===== RSVP ===== */
+.rsvp {
+  background: var(--color-background);
+}
+
+.rsvp h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Form */
+.rsvp-form {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2.5rem;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.08);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.rsvp-form input[type="text"],
+.rsvp-form input[type="number"],
+.rsvp-form textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 2px solid var(--color-border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background: var(--color-background);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.rsvp-form input:focus,
+.rsvp-form textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  background: var(--color-card-bg);
+  box-shadow: 0 0 0 3px rgba(196, 164, 164, 0.15);
+}
+
+.rsvp-form input:focus-visible,
+.rsvp-form textarea:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.rsvp-form .field {
+  margin-bottom: 1.5rem;
+}
+
+.rsvp-form .field > label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.rsvp-form .error {
+  display: block;
+  color: var(--color-error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  min-height: 1.25rem;
+}
+
+.rsvp-form .error-banner {
+  background: var(--color-error);
+  color: var(--color-white);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.submit-btn {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 48px;
+  min-width: 140px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.3);
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.3);
+}
+
+.submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Read-Only View */
+.rsvp-readonly {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.response-card {
+  background: var(--color-card-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.08);
+}
+
+.response-card p {
+  margin-bottom: 0.75rem;
+  color: var(--color-secondary);
+}
+
+.edit-btn {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  min-height: 44px;
+  transition: all 0.2s ease;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.edit-btn:hover,
+.edit-btn:focus-visible {
+  background: var(--color-primary);
+  color: var(--color-white);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Honeypot */
+.honeypot {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Loading */
+.rsvp-loading {
+  text-align: center;
+  padding: 2rem;
+  color: var(--color-primary);
+}
+
+/* ===== Confirm Modal ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: var(--color-card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.modal-message {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.modal-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  border: 2px solid var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 100px;
+}
+
+.modal-btn-cancel {
+  background: transparent;
+  color: var(--color-primary);
+}
+
+.modal-btn-cancel:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.modal-btn-confirm {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.modal-btn-confirm:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--color-secondary);
+  color: var(--color-background);
+  padding: 3rem 0 6rem;
+  text-align: center;
+}
+
+footer p {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.share-btn {
+  background: transparent;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2rem;
+  cursor: pointer;
+  font-weight: 700;
+  min-height: 44px;
+  transition: all 0.2s ease;
+}
+
+.share-btn:hover,
+.share-btn:focus-visible {
+  background: var(--color-accent);
+  color: var(--color-secondary);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.share-btn.copied {
+  background: var(--color-success);
+  color: var(--color-white);
+  border-color: var(--color-success);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 3rem;
+  }
+
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+
+  .hero h1 {
+    font-size: 2.75rem;
+  }
+
+  .couple-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 400px;
+  }
+
+  .person-photo img {
+    width: 180px;
+    height: 180px;
+  }
+
+  .groom, .bride {
+    padding: 2rem 1.5rem;
+  }
+
+  .groom h3, .bride h3 {
+    font-size: 1.5rem;
+  }
+
+  .venue iframe {
+    height: 250px;
+  }
+
+  .venue-card {
+    padding: 1.5rem;
+  }
+
+  .wedding-date-card {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .wedding-date-value {
+    font-size: 1.5rem;
+  }
+
+  .rsvp-form {
+    padding: 1.5rem;
+  }
+
+  .sticky-countdown {
+    top: 0;
+  }
+
+  .language-switcher {
+    bottom: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .language-switcher button {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+
+  .venue iframe {
+    height: 220px;
+  }
+
+  .venue-time {
+    font-size: 1.15rem;
+  }
+
+  .response-card {
+    padding: 1.5rem;
+  }
+
+  .edit-btn {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 100%;
+    max-width: 300px;
+  }
+}
