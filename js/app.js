@@ -96,7 +96,7 @@ const translations = {
       churchTime: "Ngày 09 tháng 08, 2026 | 16:00",
       restaurantName: "Ngon Quán",
       restaurantAddress: "1 Chome-1-7 Yachiyodaiminami, Yachiyo, Chiba 276-0033",
-      restaurantTime: "Ngày 09 tháng 08, 2026 | 18:00",
+      restaurantTime: "Ngày 09 tháng 08, 2026 | 10:00",
     },
     rsvp: {
       title: "Xác Nhận Tham Dự",
@@ -158,7 +158,7 @@ const translations = {
       churchTime: "2026年8月9日 | 16:00",
       restaurantName: "ゴン クアン ベトナムレストラン",
       restaurantAddress: "〒276-0033 千葉県八千代市八千代台南１丁目１−７",
-      restaurantTime: "2026年8月9日 | 18:00",
+      restaurantTime: "2026年8月9日 | 10:00",
     },
     rsvp: {
       title: "ご出席確認",
