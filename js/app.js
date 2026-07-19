@@ -1,6 +1,6 @@
 // ===== Configuration =====
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwMCSQABITOGJL9_A-hIzfRR0yfwYKUQ7SFayQegSieLXWB7CFrMRayVbNMLX7ep_dJyQ/exec";
+  "https://script.google.com/macros/s/AKfycbxPdbh_aF6ITzQD8AFGk1Vavo2mC8ajViL8cOJNmXpgiNKHKI8FYL8jnlow4IPzCkijOg/exec";
 
 // ===== Translations =====
 const translations = {
