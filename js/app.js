@@ -6,7 +6,8 @@ const GOOGLE_SCRIPT_URL =
 const translations = {
   en: {
     hero: {
-      names: "Adrian & Sophia",
+      names1: "Adrian & Sophia",
+      names2: "Adrian & Sophia",
       dateLabel: "Wedding Date",
       weddingDate: "August 9, 2026",
       photoAlt: "Couple photo",
@@ -67,7 +68,8 @@ const translations = {
   vi: {
     hero: {
       tittle: "Wedding Invitation | Hoàng Khôi & Quỳnh Châm",
-      names: "Hoàng Khôi & Quỳnh Châm",
+      names1: "Hoàng Khôi",
+      names2: "& Quỳnh Châm",
       dateLabel: "Save The Date",
       weddingDate: "Ngày 09 tháng 08, 2026",
       photoAlt: "Ảnh cặp đôi",
@@ -128,7 +130,8 @@ const translations = {
   ja: {
     hero: {
       tittle: "結婚式のご招待 | コイ & チャム",
-      names: "Hoang Khoi & Quynh Cham",
+      names1: "Hoang Khoi",
+      names2: "& Quynh Cham",
       dateLabel: "挙式日",
       weddingDate: "2026年8月9日",
       photoAlt: "カップルの写真",
