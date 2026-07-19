@@ -295,12 +295,11 @@ section.visible {
 }
 
 .wedding-date-label {
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
+  font-family: "Lavishly Yours", cursive;
+  font-size: 2rem;
   color: var(--color-primary);
   margin-bottom: 0.5rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
 }
 
 .wedding-date-value {
@@ -716,6 +715,14 @@ footer p {
   border-color: var(--color-success);
 }
 
+.couple-name {
+  font-family: "Fleur De Leah", cursive;
+}
+
+.footer-couple-name {
+  font-family: "Imperial Script", cursive;
+  font-size: 2.5rem;
+}
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   :root {
