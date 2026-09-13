@@ -59,6 +59,19 @@ const translations = {
         "Something went wrong. Please try again later or contact the couple directly.",
       submittedOn: "Submitted on",
     },
+    album: {
+      title: "Our Album",
+      subtitle: "A few moments from our journey together.",
+      photo1Alt: "Couple photo",
+      photo2Alt: "Groom photo",
+      photo3Alt: "Bride photo",
+      photo4Alt: "Couple portrait",
+      openPhoto: "View photo",
+      close: "Close",
+      prev: "Previous photo",
+      next: "Next photo",
+      viewerLabel: "Album photo viewer",
+    },
     footer: {
       closing: "We can't wait to celebrate with you!",
       shareLabel: "Share this invitation",
@@ -120,6 +133,19 @@ const translations = {
       errorServer:
         "Đã xảy ra lỗi. Vui lòng thử lại sau hoặc liên hệ trực tiếp với cặp đôi.",
       submittedOn: "Đã gửi vào",
+    },
+    album: {
+      title: "Album Ảnh",
+      subtitle: "Một vài khoảnh khắc trên hành trình của chúng mình.",
+      photo1Alt: "Ảnh cặp đôi",
+      photo2Alt: "Ảnh chú rể",
+      photo3Alt: "Ảnh cô dâu",
+      photo4Alt: "Ảnh chân dung cặp đôi",
+      openPhoto: "Xem ảnh",
+      close: "Đóng",
+      prev: "Ảnh trước",
+      next: "Ảnh tiếp theo",
+      viewerLabel: "Xem album ảnh",
     },
     footer: {
       closing: "Niềm vui của chúng mình trọn vẹn hơn khi có bạn hiện diện!",
@@ -183,6 +209,19 @@ const translations = {
         "エラーが発生しました。後でもう一度お試しになるか、カップルに直接ご連絡ください。",
       submittedOn: "送信日",
     },
+    album: {
+      title: "アルバム",
+      subtitle: "ふたりの歩みのひとこま。",
+      photo1Alt: "カップルの写真",
+      photo2Alt: "新郎の写真",
+      photo3Alt: "新婦の写真",
+      photo4Alt: "カップルのポートレート",
+      openPhoto: "写真を見る",
+      close: "閉じる",
+      prev: "前の写真",
+      next: "次の写真",
+      viewerLabel: "アルバム写真ビューア",
+    },
     footer: {
       closing: "お会いできるのを楽しみにしています！",
       shareLabel: "招待状をシェア",
@@ -190,6 +229,42 @@ const translations = {
     },
   },
 };
+
+const albumGallery = document.getElementById("album-gallery");
+
+const albumPrev = document.querySelector(".album-gallery-prev");
+const albumNext = document.querySelector(".album-gallery-next");
+
+albumPrev.addEventListener("click", () => {
+  albumGallery.scrollBy({
+    left: -300,
+    behavior: "smooth"
+  });
+});
+
+albumNext.addEventListener("click", () => {
+  albumGallery.scrollBy({
+    left: 300,
+    behavior: "smooth"
+  });
+});
+
+const music = document.getElementById("bgMusic");
+const button = document.getElementById("musicButton");
+
+let isPlaying = false;
+
+button.addEventListener("click", () => {
+        if (isPlaying) {
+            music.pause();
+            button.textContent = "🔇";
+        } else {
+            music.play();
+            button.textContent = "🎵";
+        }
+
+        isPlaying = !isPlaying;
+});
 
 // ===== Utility: Nested Object Access =====
 function getNestedValue(obj, path) {
@@ -257,6 +332,15 @@ function switchLanguage(lang) {
     const value = getNestedValue(translations[lang], key);
     if (value !== undefined) {
       el.alt = value;
+    }
+  });
+
+  // Update aria-labels
+  document.querySelectorAll("[data-i18n-key-aria]").forEach((el) => {
+    const key = el.dataset.i18nKeyAria;
+    const value = getNestedValue(translations[lang], key);
+    if (value !== undefined) {
+      el.setAttribute("aria-label", value);
     }
   });
 
@@ -741,6 +825,72 @@ function initScrollAnimations() {
 }
 
 // ===== Share Button =====
+// ===== Album Lightbox =====
+function initAlbum() {
+  const items = Array.from(document.querySelectorAll(".album-item"));
+  const lightbox = document.getElementById("album-lightbox");
+  if (!items.length || !lightbox) return;
+
+  const imageEl = lightbox.querySelector(".album-lightbox-image");
+  const closeBtn = lightbox.querySelector(".album-lightbox-close");
+  const prevBtn = lightbox.querySelector(".album-lightbox-prev");
+  const nextBtn = lightbox.querySelector(".album-lightbox-next");
+  let currentIndex = 0;
+  let lastFocus = null;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lastFocus = document.activeElement;
+    renderLightbox();
+    lightbox.hidden = false;
+    closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.hidden = true;
+    if (lastFocus && typeof lastFocus.focus === "function") {
+      lastFocus.focus();
+    }
+  }
+
+  function renderLightbox() {
+    const item = items[currentIndex];
+    const img = item ? item.querySelector("img") : null;
+    if (!img || !imageEl) return;
+    imageEl.src = img.currentSrc || img.src;
+    imageEl.alt = img.alt || "";
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % items.length;
+    renderLightbox();
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + items.length) % items.length;
+    renderLightbox();
+  }
+
+  items.forEach((item, index) => {
+    item.addEventListener("click", () => openLightbox(index));
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+  nextBtn.addEventListener("click", showNext);
+  prevBtn.addEventListener("click", showPrev);
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.hidden) return;
+    if (e.key === "Escape") closeLightbox();
+    if (e.key === "ArrowRight") showNext();
+    if (e.key === "ArrowLeft") showPrev();
+  });
+}
+
 function initShareButton() {
   const shareBtn = document.querySelector(".share-btn");
   if (!shareBtn) return;
@@ -822,5 +972,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCountdown();
   initScrollAnimations();
   initRsvp();
+  initAlbum();
   initShareButton();
 });

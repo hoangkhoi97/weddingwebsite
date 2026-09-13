@@ -8,7 +8,8 @@
   .edit-btn,
   .submit-btn,
   .rsvp-loading,
-  .honeypot {
+  .honeypot,
+  .album-lightbox {
     display: none !important;
   }
 
@@ -72,6 +73,25 @@
   /* Photo borders */
   .person-photo img {
     border: 2px solid #C4A4A4;
+  }
+
+  .album-grid {
+    display: block;
+  }
+
+  .album-item {
+    display: block;
+    width: 100%;
+    margin-bottom: 0.75rem;
+    border: 1px solid #C4A4A4;
+    aspect-ratio: auto;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .album-item img {
+    width: 100%;
+    height: auto;
   }
 
   /* Footer */

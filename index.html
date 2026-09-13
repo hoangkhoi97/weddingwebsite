@@ -23,6 +23,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Imperial+Script&display=swap" rel="stylesheet">
+  <link
+  href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Great+Vibes&family=Montserrat:wght@400;500;600;700&display=swap"
+  rel="stylesheet"
+>
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
@@ -61,7 +65,7 @@
     <!-- Section 1: Hero -->
     <section class="hero" id="hero">
       <div class="hero-bg">
-        <img src="images/couple-placeholder-desktop.jpeg" alt="[Couple names]" class="couple-photo" data-i18n-key-alt="hero.photoAlt">
+        <img src="images/placeholder.jpg" alt="[Couple names]" class="couple-photo" data-i18n-key-alt="hero.photoAlt">
         <div class="hero-overlay"></div>
       </div>
       <div class="container">
@@ -75,27 +79,83 @@
       </div>
     </section>
 
-    <!-- Section 2: Couple Information -->
-    <section class="couple" id="couple">
-      <div class="container">
-        <div class="couple-grid">
-          <div class="groom">
-            <div class="person-photo">
-              <img src="images/groom-placeholder.jpeg" alt="[Groom name]" data-i18n-key-alt="about.groomPhotoAlt">
-            </div>
-            <h3 data-i18n-key="about.groomTitle">Groom</h3>
-            <p data-i18n-key="about.groomBio">Adrian is an architect who believes great design brings people together. He loves hiking mountain trails, experimenting with film photography, and discovering hidden cafes around the world.</p>
-          </div>
-          <div class="bride">
-            <div class="person-photo">
-              <img src="images/bride-placeholder.jpeg" alt="[Bride name]" data-i18n-key-alt="about.bridePhotoAlt">
-            </div>
-            <h3 data-i18n-key="about.brideTitle">Bride</h3>
-            <p data-i18n-key="about.brideBio">Sophia is a musician and educator who connects hearts through melody and story. She finds joy in tending her garden, writing poetry at sunrise, and exploring art in every form.</p>
-          </div>
+    <!-- Section 2: Wedding Announcement -->
+<section class="wedding-announcement" id="couple">
+  <div class="container">
+
+    <!-- Decorative symbol -->
+    <div class="wedding-symbol">囍</div>
+
+    <div class="wedding-ornament">❧</div>
+
+    <div class="announcement-content">
+
+      <!-- Nhà trai -->
+      <div class="family family-groom">
+        <h3>NHÀ TRAI</h3>
+
+        <p>
+          ÔNG ĐINH CÔNG ĐỊNH
+        </p>
+
+        <p>
+          BÀ HOÀNG THỊ LOAN
+        </p>
+
+        <div class="family-address">
+          2107/1A, Tổ 46 KP3,<br>
+          P.An Phú Đông, Q12, TPHCM
         </div>
       </div>
-    </section>
+
+
+      <!-- Nội dung chính -->
+      <div class="wedding-center">
+
+        <p class="announcement-title">
+          Trân Trọng Báo Tin Lễ Thành Hôn Của
+        </p>
+
+        <h2 class="groom-name">
+          Hoàng Khôi
+        </h2>
+
+        <div class="and-symbol">&amp;</div>
+
+        <h2 class="bride-name">
+          Quỳnh Châm
+        </h2>
+
+      </div>
+
+
+      <!-- Nhà gái -->
+      <div class="family family-bride">
+        <h3>NHÀ GÁI</h3>
+
+        <p>
+          ÔNG LÊ XUÂN THỈNH
+        </p>
+
+        <p>
+          BÀ NGUYỄN THỊ HIỀN
+        </p>
+
+        <div class="family-address">
+          Làng Đá, Đỗ Hạ,<br>
+          Quang Vinh, Hưng Yên
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Decorative bottom -->
+    <div class="wedding-ornament bottom">
+      ❧
+    </div>
+
+  </div>
+</section>
 
     <!-- Section 3: Wedding Reception -->
     <section class="venue reception" id="reception">
@@ -203,6 +263,158 @@
         </div>
       </div>
     </section>
+
+    <!-- Section 6: Album -->
+    <section class="album" id="album">
+  <div class="container">
+    <h2 data-i18n-key="album.title">Our Album</h2>
+    <p class="album-subtitle" data-i18n-key="album.subtitle">
+      A few moments from our journey together.
+    </p>
+
+    <div class="album-gallery-wrapper">
+
+  <button
+    type="button"
+    class="album-gallery-nav album-gallery-prev"
+    aria-label="Previous photos"
+  >
+    &#10094;
+  </button>
+
+  <div class="album-gallery" id="album-gallery">
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="0"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo1.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo1Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="1"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo2.jpg"
+        alt="Groom photo"
+        data-i18n-key-alt="album.photo2Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="2"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo3.jpg"
+        alt="Bride photo"
+        data-i18n-key-alt="album.photo3Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="3"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo4.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo4Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="3"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo5.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo4Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="3"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo6.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo4Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="3"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo7.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo4Alt"
+        loading="lazy"
+      >
+    </button>
+
+    <button
+      type="button"
+      class="album-item"
+      data-album-index="3"
+      data-i18n-key-aria="album.openPhoto"
+      aria-label="View photo"
+    >
+      <img
+        src="images/Couple_photo8.jpg"
+        alt="Couple photo"
+        data-i18n-key-alt="album.photo4Alt"
+        loading="lazy"
+      >
+    </button>
+
+  </div>
+
+  <button
+    type="button"
+    class="album-gallery-nav album-gallery-next"
+    aria-label="Next photos"
+  >
+    &#10095;
+  </button>
+  </div>
+</section>
   </main>
 
   <!-- Confirm Modal -->
@@ -215,6 +427,22 @@
       </div>
     </div>
   </div>
+
+  <!-- Album Lightbox -->
+  <div class="album-lightbox" id="album-lightbox" role="dialog" aria-modal="true" data-i18n-key-aria="album.viewerLabel" aria-label="Album photo viewer" hidden>
+    <button type="button" class="album-lightbox-close" data-i18n-key-aria="album.close" aria-label="Close">&times;</button>
+    <button type="button" class="album-lightbox-nav album-lightbox-prev" data-i18n-key-aria="album.prev" aria-label="Previous photo">&#10094;</button>
+    <img src="" alt="" class="album-lightbox-image">
+    <button type="button" class="album-lightbox-nav album-lightbox-next" data-i18n-key-aria="album.next" aria-label="Next photo">&#10095;</button>
+  </div>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="audio/wedding.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicButton" class="music-button">
+    🎵
+  </button>
 
   <!-- Footer -->
   <footer>

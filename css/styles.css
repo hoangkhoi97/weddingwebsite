@@ -156,6 +156,96 @@ section.visible {
   color: var(--color-white);
 }
 
+.album-gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.album-gallery {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  width: 100%;
+}
+
+.album-gallery::-webkit-scrollbar {
+  display: none;
+}
+
+/* Nút trái/phải */
+.album-gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+
+  font-size: 28px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: background 0.2s, transform 0.2s;
+}
+
+.album-gallery-nav:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.album-gallery-prev {
+  left: 10px;
+}
+
+.album-gallery-next {
+  right: 10px;
+}
+
+.album-item {
+  flex: 0 0 280px;
+  width: 280px;
+  height: 380px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  overflow: hidden;
+  border-radius: 16px;
+
+  cursor: pointer;
+  scroll-snap-align: start;
+}
+
+.album-item img {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.album-item:hover img {
+  transform: scale(1.05);
+}
+
 /* ===== Sticky Countdown ===== */
 .sticky-countdown {
   position: -webkit-sticky;
@@ -728,6 +818,343 @@ footer p {
   width: 100%;
   height: auto;
 }
+
+/* ===== Album ===== */
+.album {
+  background: var(--color-map-bg);
+  scroll-margin-top: 7rem;
+}
+
+.album h2 {
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.album-subtitle {
+  text-align: center;
+  max-width: 520px;
+  margin: 0 auto 2rem auto;
+  color: var(--color-secondary);
+}
+
+
+
+.album-item {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 2px solid var(--color-border);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--color-card-bg);
+  box-shadow: 0 4px 15px rgba(196, 164, 164, 0.08);
+  aspect-ratio: 4 / 5;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.album-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.album-item:hover,
+.album-item:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(196, 164, 164, 0.2);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.album-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 3.5rem 2rem;
+}
+
+.album-lightbox[hidden] {
+  display: none !important;
+}
+
+.album-lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.album-lightbox-close,
+.album-lightbox-nav {
+  position: absolute;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-white);
+  cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background 0.2s ease;
+}
+
+.album-lightbox-close:hover,
+.album-lightbox-nav:hover,
+.album-lightbox-close:focus-visible,
+.album-lightbox-nav:focus-visible {
+  background: var(--color-primary);
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.album-lightbox-close {
+  top: 1rem;
+  right: 1rem;
+  font-size: 2rem;
+}
+
+.album-lightbox-prev {
+  left: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.album-lightbox-next {
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+
+/* =========================================
+   WEDDING ANNOUNCEMENT
+========================================= */
+
+.wedding-announcement {
+  position: relative;
+
+  padding: 90px 20px;
+
+  background: #faf8f6;
+
+  text-align: center;
+  overflow: hidden;
+}
+
+.wedding-announcement .container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================================
+   DECORATION
+========================================= */
+
+.wedding-symbol {
+  font-family: "Noto Serif", serif;
+
+  font-size: 58px;
+  line-height: 1;
+
+  color: #a88982;
+
+  margin-bottom: 18px;
+}
+
+.wedding-ornament {
+  font-size: 30px;
+
+  color: #b99a92;
+
+  margin-bottom: 45px;
+}
+
+.wedding-ornament.bottom {
+  margin-top: 45px;
+  margin-bottom: 0;
+
+  transform: rotate(180deg);
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.announcement-content {
+  display: grid;
+
+  grid-template-columns: 1fr 1.3fr 1fr;
+
+  align-items: center;
+
+  gap: 45px;
+}
+
+
+/* =========================================
+   FAMILY
+========================================= */
+
+.family {
+  text-align: center;
+
+  color: #333;
+}
+
+.family h3 {
+  margin: 0 0 22px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 19px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.family p {
+  margin: 8px 0;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  line-height: 1.6;
+}
+
+.family-address {
+  margin-top: 18px;
+
+  font-family: "Montserrat", sans-serif;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: #666;
+}
+
+
+/* =========================================
+   CENTER
+========================================= */
+
+.wedding-center {
+  position: relative;
+
+  padding: 20px 35px;
+}
+
+
+/* đường trang trí hai bên */
+
+.wedding-center::before,
+.wedding-center::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+
+  width: 1px;
+  height: 150px;
+
+  background: #dfd2ce;
+
+  transform: translateY(-50%);
+}
+
+.wedding-center::before {
+  left: 0;
+}
+
+.wedding-center::after {
+  right: 0;
+}
+
+
+/* =========================================
+   ANNOUNCEMENT TEXT
+========================================= */
+
+.announcement-title {
+  margin: 0 0 35px;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 24px;
+
+  font-weight: 400;
+
+  font-style: italic;
+
+  color: #75615c;
+}
+
+
+/* =========================================
+   NAMES
+========================================= */
+
+.groom-name,
+.bride-name {
+  margin: 0;
+
+  font-family: "Great Vibes", "Allura", cursive;
+
+  font-size: 55px;
+
+  font-weight: 400;
+
+  line-height: 1.2;
+
+  color: #5e4a46;
+}
+
+.and-symbol {
+  margin: 12px 0;
+
+  font-family: "Cormorant Garamond", Georgia, serif;
+
+  font-size: 35px;
+
+  color: #9c7b73;
+}
+
+.music-button {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+    border: none;
+
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+
+    font-size: 22px;
+    cursor: pointer;
+
+    z-index: 9999;
+}
+
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   :root {
@@ -740,10 +1167,6 @@ footer p {
 
   .hero h1 {
     font-size: 2.75rem;
-  }
-
-  .couple-photo {
-    content: url("../images/couple-placeholder-mobile.jpeg");
   }
 
   .couple-grid {
@@ -783,6 +1206,11 @@ footer p {
 
   .rsvp-form {
     padding: 1.5rem;
+  }
+
+ 
+  .album-lightbox {
+    padding: 4.5rem 3rem 1.5rem;
   }
 
   .sticky-countdown {
@@ -828,5 +1256,137 @@ footer p {
     display: block;
     width: 100%;
     max-width: 300px;
+  }
+
+
+  .album-item {
+    aspect-ratio: 3 / 4;
+  }
+
+  .album-lightbox-prev {
+    left: 0.35rem;
+  }
+
+  .album-lightbox-next {
+    right: 0.35rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .album-gallery {
+    gap: 14px;
+    padding-left: 4px;
+    padding-right: 20px;
+  }
+
+  .album-item {
+    flex: 0 0 82vw;
+    width: 82vw;
+    height: 110vw;
+    max-height: 520px;
+    border-radius: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .wedding-announcement {
+    padding: 60px 20px;
+  }
+
+  .wedding-announcement .container {
+    width: 100%;
+  }
+
+  /* Biểu tượng 囍 */
+  .wedding-symbol {
+    font-size: 48px;
+    margin-bottom: 12px;
+  }
+
+  .wedding-ornament {
+    font-size: 26px;
+    margin-bottom: 35px;
+  }
+
+  /* Chuyển 3 cột thành 1 cột */
+  .announcement-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  /* Nhà trai */
+  .family-groom {
+    order: 1;
+  }
+
+  /* Phần tên cô dâu chú rể */
+  .wedding-center {
+    order: 3;
+
+    width: 100%;
+
+    padding: 45px 0;
+    margin: 40px 0;
+
+    border-top: 1px solid #dfd2ce;
+    border-bottom: 1px solid #dfd2ce;
+  }
+
+  /* Nhà gái */
+  .family-bride {
+    margin-top: 20px;
+    order: 2;
+  }
+
+  /* Không cần đường dọc trên mobile */
+  .wedding-center::before,
+  .wedding-center::after {
+    display: none;
+  }
+
+  /* Tiêu đề */
+  .announcement-title {
+    font-size: 21px;
+    line-height: 1.6;
+
+    margin-bottom: 28px;
+  }
+
+  /* Tên chú rể */
+  .groom-name,
+  .bride-name {
+    font-size: 48px;
+    line-height: 1.3;
+  }
+
+  /* Dấu & */
+  .and-symbol {
+    font-size: 30px;
+    margin: 8px 0;
+  }
+
+  /* Nhà trai / nhà gái */
+  .family h3 {
+    font-size: 18px;
+    margin-bottom: 18px;
+  }
+
+  .family p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 6px 0;
+  }
+
+  .family-address {
+    font-size: 13px;
+    line-height: 1.8;
+    margin-top: 15px;
+  }
+
+  .wedding-ornament.bottom {
+    margin-top: 40px;
   }
 }
