@@ -105,10 +105,10 @@ const translations = {
       ceremonyTitle: "Tiệc cưới miền Nam",
       receptionTitle: "Tiệc cưới miền Bắc",
       churchName: "Tiệc Cưới Luxury Palace",
-      churchAddress: "171 Đ. Nguyễn Thái Sơn, Hạnh Thông, Hồ Chí Minh 70000",
+      churchAddress: "Sảnh BALLROOM - 171 Đ. Nguyễn Thái Sơn, Hạnh Thông, Hồ Chí Minh",
       churchTime: "Ngày 20 tháng 09, 2026 | 11:00",
       restaurantName: "Tiệc tại gia",
-      restaurantAddress: "Làng Đá - Đỗ Hạ, Ân Thi, Hưng Yên 161800",
+      restaurantAddress: "Làng Đá - Đỗ Hạ, Quang Vinh, Ân Thi, Hưng Yên",
       restaurantTime: "Ngày 16 tháng 09, 2026 | 10:00",
     },
     rsvp: {
