@@ -102,8 +102,8 @@ const translations = {
       bridePhotoAlt: "Cô Dâu",
     },
     venues: {
-      ceremonyTitle: "Tiệc cưới miền Nam",
-      receptionTitle: "Tiệc cưới miền Bắc",
+      ceremonyTitle: "Tiệc nhà Trai",
+      receptionTitle: "Tiệc nhà Gái",
       churchName: "Tiệc Cưới Luxury Palace",
       churchAddress: "Sảnh BALLROOM - 171 Đ. Nguyễn Thái Sơn, Hạnh Thông, Hồ Chí Minh",
       churchTime: "Ngày 20 tháng 09, 2026 | 11:00",
