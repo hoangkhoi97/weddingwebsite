@@ -1136,7 +1136,7 @@ footer p {
 
 .music-button {
     position: fixed;
-    right: 20px;
+    left: 20px;
     bottom: 20px;
 
     width: 50px;
